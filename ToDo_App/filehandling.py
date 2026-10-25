@@ -4,10 +4,11 @@ from task_info import Task_info
 
 def save_tasks(tasks):
     with open("tasks.txt", "w") as file:
-        for task in tasks:
-            file.write(
-                f"{task.task_id}|{task.task_name}|{task.task_status}\n"
-            )
+        file.writelines(
+            f"{task.task_id}|{task.task_name}|{task.task_status}\n"
+            for task in tasks
+        )
+
 
 
 def load_tasks():

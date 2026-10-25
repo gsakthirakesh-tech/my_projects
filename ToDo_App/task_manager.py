@@ -1,6 +1,5 @@
-
+from filehandling import load_tasks, save_tasks
 from task_info import Task_info
-from filehandling import save_tasks, load_tasks
 
 
 class Task_manager:
