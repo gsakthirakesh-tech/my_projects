@@ -10,8 +10,7 @@ def add_task():
         else:
             max_id = 0
             for t in tasks:
-                if t["id"] > max_id:
-                    max_id = t["id"]
+                max_id = max(max_id, t["id"])
             task_id = max_id + 1
 
         new_task = {
@@ -43,7 +42,7 @@ def search_task():
     else:
         try:
             search_id = int(input("Enter task ID to search: "))
-        except:
+        except ValueError:
             print("Please enter a valid number.")
             return
         
@@ -67,7 +66,7 @@ def update_task():
     else:
         try:
             update_id = int(input("Enter task ID to update: "))
-        except:
+        except ValueError:
             print("Please enter a valid number.")
             return
         
@@ -93,7 +92,7 @@ def complete_task():
     else:
         try:
             complete_id = int(input("Enter task ID to mark as completed: "))
-        except:
+        except ValueError:
             print("Please enter a valid number.")
             return
         
@@ -115,7 +114,7 @@ def delete_task():
     else:
         try:
             delete_id = int(input("Enter task ID to delete: "))
-        except:
+        except ValueError:
             print("Please enter a valid number.")
             return
         

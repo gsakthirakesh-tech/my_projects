@@ -1,5 +1,6 @@
 import tasks
 
+
 def show_menu():
     print()
     print("------ TODO APPLICATION ------")
@@ -19,7 +20,7 @@ def main():
         
         try:
             choice = int(choice_input)
-        except:
+        except ValueError:
             print("Invalid input! Please type a number from 1 to 7")
             continue
         
