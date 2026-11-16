@@ -3,9 +3,7 @@ from uuid import uuid4
 
 from qdrant_client import QdrantClient, models
 from sentence_transformers import SentenceTransformer
-
 from settings import api_key, collection_name, model, url
-
 
 client = QdrantClient(url=url, api_key=api_key)
 
@@ -127,30 +125,38 @@ def search_documents(query):
 
 
 # MAIN FUNCTION
+
+# MAIN FUNCTION
 def main():
 
-    # create_collection()
+    create_collection()
 
-    # document_id = create_document(
-    #     "Python is a programming language",
-    #     "Programming"
-    # )
-    # print("Document ID:", document_id)
+    # Create document
+    document_id = create_document(
+        "Python is a programming language",
+        "Programming"
+    )
+    print("Document ID:", document_id)
 
     # Read document
-    # print("Read document:", read_document("b876e256-b001-4d22-9ae0-e176aa96471e"))
+    print("Read document:", read_document(document_id))
 
-    # # Update document
-    # document_id = update_document("b876e256-b001-4d22-9ae0-e176aa96471e", "Java is a programming language", "...")
+    # Update document
+    document_id = update_document(
+        document_id,
+        "Java is a programming language",
+        "Programming"
+    )
+    print("Updated document:", document_id)
 
-    # # Delete document
-    # # print(delete_document(b876e256-b001-4d22-9ae0-e176aa96471e))
+    # Delete document
+    # print(delete_document(document_id))
 
     # Search documents
-    # print(
-    #     'search_documents("what is java ?"): ',
-    #     search_documents("what is java ?")
-    # )
+    print(
+        'search_documents("what is java ?"): ',
+        search_documents("what is java ?")
+    )
 
 
 if __name__ == "__main__":
